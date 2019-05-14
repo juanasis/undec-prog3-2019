@@ -19,7 +19,6 @@ public class Vuelo {
 	public Vuelo(String codigoVuelo, Aeropuerto salida, LocalDateTime fechaHoraSalida, Aeropuerto arribo,
 			LocalDateTime fechaHoraArribo, Aerolinea aerolinea, LinkedList<Piloto> pilotos, Avion avion,
 			LinkedList<Asignacion> pasajeros) {
-		super();
 		
 		this.codigoVuelo = codigoVuelo;
 		this.salida = salida;

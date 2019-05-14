@@ -4,7 +4,7 @@ public class Aerolinea {
 	private int idAerolineas;
 	private String nombre;
 	public Aerolinea(int idAerolineas, String nombre) {
-		super();
+	
 		this.idAerolineas = idAerolineas;
 		this.nombre = nombre;
 	}

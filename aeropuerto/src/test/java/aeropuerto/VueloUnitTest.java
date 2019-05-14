@@ -6,9 +6,11 @@ import java.time.LocalDateTime;
 
 import org.junit.jupiter.api.Test;
 
+import excepciones.CiudadNombreIncorrectoExcepcion;
+
 public class VueloUnitTest {
 	@Test
-	void ShowDetails_ReturnsRightFormat() {
+	void mostrarDetalles_devuelveFormatoCorrecto() {
 
 		Vuelo elVuelo = crearUnVuelo();
 
@@ -24,7 +26,7 @@ public class VueloUnitTest {
 	}
 
 	@Test
-	void formatofechaHora_atributofecha_instanciaCorrecta() {
+	void formatofechaHora_atributofecha_devuelveFormatoCorrecto() {
 		LocalDateTime fechayhora = LocalDateTime.of(2018, 06, 07, 13, 10);
 		Vuelo elVuelo = new Vuelo("", null, fechayhora, null, null, null, null, null, null);
 
@@ -36,7 +38,7 @@ public class VueloUnitTest {
 
 	
 
-	private Vuelo crearUnVuelo() {
+	private Vuelo crearUnVuelo(){
 
 		Ciudad laRioja = new Ciudad(1, "La Rioja", "5300");
 		Ciudad buenosAires = new Ciudad(2, "Buenos Aires", "1000");

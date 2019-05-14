@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.Period;
 
 public class Piloto {
-	private int hsVuelo=0;
+	
 	private int idPiloto;
 	private String apellido;
 	private String nombres;
@@ -12,7 +12,7 @@ public class Piloto {
 	private LocalDate fechaNacimiento;
 	
 	public Piloto(int idPiloto, String apellido, String nombres, String documento, LocalDate fechaNacimiento) {
-		super();
+		
 		this.idPiloto = idPiloto;
 		this.apellido = apellido;
 		this.nombres = nombres;
@@ -50,15 +50,7 @@ public class Piloto {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 	
-	public int getHsVuelo() {
-		return hsVuelo/60;
-	}
-	public void setHsVuelo(int hsVuelo) {
-		this.hsVuelo = hsVuelo;
-	}
-	void acumulaHoras(int x) {
-		this.hsVuelo+=x;
-	}
+	
 	@Override
 	public String toString() {
 		return "Piloto [idPiloto=" + idPiloto + ", apellido=" + apellido + ", nombres=" + nombres + ", documento="
