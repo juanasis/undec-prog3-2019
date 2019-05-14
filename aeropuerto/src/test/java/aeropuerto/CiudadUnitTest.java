@@ -8,21 +8,16 @@ class CiudadUnitTest {
 
 	@Test
 	void ciudadTest_todosLosAtributos_instanciaCorrecta() {
-		Ciudad buenosAires = new(001,"Buenos Aires", 1000);
-		assertEquals(001, buenosAires.getId());
-		assertEquals("Bueno Aires" , buenosAires.getNombre());
-		assertEquals(1000, buenosAires.getCodigoPostal());
+		Ciudad buenosAires = new Ciudad(001,"Buenos Aires", "1000");
+		assertEquals(001, buenosAires.getIdCiudad());
+		assertEquals("Buenos Aires" , buenosAires.getNombre());
+		assertEquals("1000", buenosAires.getCodigoPostal());
 	}
 	void ciudadTest_faltaCodPostal_instanciaIncorrecta() {
-		Ciudad cordoba = new(002,"Cordoba");
-		assertEquals(002, cordoba.getId());
+		Ciudad cordoba = new Ciudad(002,"Cordoba",null);
+		assertEquals(002, cordoba.getIdCiudad());
 		assertEquals("Cordoba" , cordoba.getNombre());
 		assertEquals(2000, cordoba.getCodigoPostal());
 	}
-	void ciudadTest_faltaCodPostal_instanciaIncorrecta() {
-		Ciudad cordoba = new(002,"Cordoba");
-		assertEquals(002, cordoba.getId());
-		assertEquals("Cordoba" , cordoba.getNombre());
-		assertEquals(2000, cordoba.getCodigoPostal());
-	}
+	
 }

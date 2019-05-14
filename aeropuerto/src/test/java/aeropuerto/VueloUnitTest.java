@@ -1,17 +1,23 @@
 package aeropuerto;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.time.LocalDateTime;
+
+import org.junit.jupiter.api.Test;
+
 public class VueloUnitTest {
 	@Test
 	void ShowDetails_ReturnsRightFormat() {
 
 		Vuelo elVuelo = crearUnVuelo();
 
-		String salida = elVuelo.getDetails();
+		String salida = elVuelo.mostrarVuelo();
 
 		String expected = "Vuelo AR2443 - Embraer ERJ-190-100AR\r\n"
 				+ "Martes 10 de abril 21:10 IRJ (La Rioja - Aeropuerto Capitán Vicente Almandos Almonacid)\r\n"
 				+ "Martes 10 de abril 22:45 AEP (Buenos Aires - Aeropuerto Buenos Aires Jorge Newbery)\r\n"
-				+ "Operado por Austral. Duración 1h 35m";
+				+ "Operado por Austral";
 
 		assertEquals(expected, salida);
 
@@ -22,7 +28,7 @@ public class VueloUnitTest {
 		LocalDateTime fechayhora = LocalDateTime.of(2018, 06, 07, 13, 10);
 		Vuelo elVuelo = new Vuelo("", null, fechayhora, null, null, null, null, null, null);
 
-		String formatoFecha = elVuelo.fechayHora(fechayhora);
+		LocalDateTime formatoFecha = elVuelo.getFechaHoraSalida();
 
 		assertEquals("Jueves 7 de junio 13:10", formatoFecha);
 
