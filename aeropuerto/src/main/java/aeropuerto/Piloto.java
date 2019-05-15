@@ -3,6 +3,12 @@ package aeropuerto;
 import java.time.LocalDate;
 import java.time.Period;
 
+import excepciones.PilotoApellidoIncorrectoException;
+import excepciones.PilotoDniIncorrectoException;
+import excepciones.PilotoException;
+import excepciones.PilotoMenorDeEdadException;
+import excepciones.PilotoNombreIncorrectoException;
+
 public class Piloto {
 	
 	private int idPiloto;
@@ -11,11 +17,20 @@ public class Piloto {
 	private String documento;
 	private LocalDate fechaNacimiento;
 	
-	public Piloto(int idPiloto, String apellido, String nombres, String documento, LocalDate fechaNacimiento) {
+	public Piloto(int idPiloto, String apellido, String nombres, String documento, LocalDate fechaNacimiento) throws PilotoException {
+				
+		if(nombres.length() == 0) 
+			throw new  PilotoNombreIncorrectoException();
 		
-		this.idPiloto = idPiloto;
+		if(nombres.length() == 0) 
+			throw new  PilotoApellidoIncorrectoException();
+		if(documento.length() == 0) 
+			throw new  PilotoDniIncorrectoException();
+		if(getAge(fechaNacimiento) < 18)
+			throw new PilotoMenorDeEdadException();
 		this.apellido = apellido;
 		this.nombres = nombres;
+		this.idPiloto = idPiloto;	
 		this.documento = documento;
 		this.fechaNacimiento = fechaNacimiento;
 	}
@@ -59,9 +74,9 @@ public class Piloto {
 	public String getApelidoNombres() {
 		return (apellido+", "+ nombres);
 	}
-	public int getAge(LocalDate of) {
+	private int getAge(LocalDate fechaNacimiento) {
 		Period años;
-		años = Period.between(fechaNacimiento,of );
+		años = Period.between(fechaNacimiento,LocalDate.now() );
 		return años.getYears();
 	}
 	@Override
