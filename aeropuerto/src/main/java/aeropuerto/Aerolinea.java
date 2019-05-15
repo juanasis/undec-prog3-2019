@@ -1,10 +1,14 @@
 package aeropuerto;
 
+import excepciones.AerolineaException;
+import excepciones.AerolineaNombreIncorrectoException;
+
 public class Aerolinea {
 	private int idAerolineas;
 	private String nombre;
-	public Aerolinea(int idAerolineas, String nombre) {
-	
+	public Aerolinea(int idAerolineas, String nombre) throws AerolineaException{
+		if(nombre.length() == 0)
+			throw new AerolineaNombreIncorrectoException();
 		this.idAerolineas = idAerolineas;
 		this.nombre = nombre;
 	}
