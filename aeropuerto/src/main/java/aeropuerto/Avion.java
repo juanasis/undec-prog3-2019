@@ -1,16 +1,27 @@
 package aeropuerto;
 import java.util.Collection;
 import java.util.LinkedList;
+import java.util.List;
+
+import excepciones.AvionException;
+import excepciones.AvionListaAsientosIncorrectaException;
+import excepciones.AvionMatriculaIncorrectaException;
+import excepciones.AvionModeloIncorrectoException;
 
 public class Avion {
 
 		private int idAvion;
 		private String modelo;
 		private String matricula;
-		private LinkedList<Asiento> listaAsientos;
+		private List<Asiento> listaAsientos;
 		private int hsVuelo=0;
-		public Avion(int idAvion, String modelo, String matricula, LinkedList<Asiento> listaAsientos) {
-			super();
+		public Avion(int idAvion, String modelo, String matricula, List<Asiento> listaAsientos)throws AvionException {
+			if(modelo.length() == 0)
+				throw new AvionModeloIncorrectoException();
+			if(matricula.length() == 0)
+				throw new AvionMatriculaIncorrectaException();
+			if(listaAsientos.size() == 0)
+				throw new AvionListaAsientosIncorrectaException();
 			this.idAvion = idAvion;
 			this.modelo = modelo;
 			this.matricula = matricula;
@@ -34,7 +45,7 @@ public class Avion {
 		public void setMatricula(String matricula) {
 			this.matricula = matricula;
 		}
-		public LinkedList<Asiento> getListaAsientos() {
+		public List<Asiento> getListaAsientos() {
 			return listaAsientos;
 		}
 		public void setListaAsientos(LinkedList<Asiento> listaAsientos) {
