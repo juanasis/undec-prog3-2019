@@ -1,15 +1,25 @@
 package aeropuerto;
 
+import excepciones.PasajeroApellidoIncorrectoException;
+import excepciones.PasajeroCuilIncorrectoException;
+import excepciones.PasajeroException;
+import excepciones.PasajeroNombreIncorrectoException;
+
 public class Pasajero {
 	private int idPasajero;
 	private String CUIL;
 	private String apellido;
 	private String nombre;
 	private String telefono;
-	public Pasajero(int idPasajero, String cUIL, String apellido, String nombre, String telefono) {
-		super();
+	public Pasajero(int idPasajero, String cuil, String apellido, String nombre, String telefono) throws PasajeroException{
+		if(nombre.length() == 0)
+			throw new PasajeroNombreIncorrectoException();
+		if(apellido.length() == 0)
+			throw new PasajeroApellidoIncorrectoException();
+		if(cuil.length() == 0 || cuil.length() > 10)
+			throw new PasajeroCuilIncorrectoException();
 		this.idPasajero = idPasajero;
-		CUIL = cUIL;
+		this.CUIL = cuil;
 		this.apellido = apellido;
 		this.nombre = nombre;
 		this.telefono = telefono;
