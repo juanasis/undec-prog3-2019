@@ -4,7 +4,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import excepciones.CiudadNombreIncorrectoExcepcion;
+import excepciones.CiudadCodPostalIncorrectoException;
+import excepciones.CiudadException;
+import excepciones.CiudadNombreIncorrectoException;
 
 class CiudadUnitTest {
 
@@ -20,11 +22,22 @@ class CiudadUnitTest {
 		assertEquals("Buenos Aires" , buenosAires.getNombre());
 		assertEquals("1000", buenosAires.getCodigoPostal());
 	}
+	@Test
 	void ciudadTest_faltaCodPostal_instanciaIncorrecta() {
 		Ciudad cordoba = null;
 		try {
-			cordoba = new Ciudad(001,"", "1000");
-		}catch (CiudadNombreIncorrectoExcepcion e) {
+			cordoba = new Ciudad(001,"Cordoba", "");
+		}catch (CiudadException e) {
+			assertEquals("Codigo Postal Incorrecto", e.getMessage());
+		}
+		
+	}
+	@Test
+	void ciudadTest_faltaNombreCiudad_instanciaIncorrecta() {
+		Ciudad cordoba = null;
+		try {
+			cordoba = new Ciudad(001,"","1234");
+		}catch (CiudadException e) {
 			assertEquals("Ciudad Nombre Incorrecto", e.getMessage());
 		}
 		
