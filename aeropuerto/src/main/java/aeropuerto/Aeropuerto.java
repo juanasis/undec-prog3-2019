@@ -1,13 +1,21 @@
 package aeropuerto;
 
+import excepciones.AerolineaException;
+import excepciones.AerolineaNombreIncorrectoException;
+import excepciones.CiudadNombreIncorrectoExcepcion;
+import excepciones.CiudadNombreIncorrectoException;
+
 public class Aeropuerto {
 	private int idAeropuerto;
 	private String nombre;
 	private Ciudad ciudad;
 	private String codigo;
 	
-	public Aeropuerto(int idAeropuerto, String nombre, Ciudad ciudad, String codigo) {
-	
+	public Aeropuerto(int idAeropuerto, String nombre, Ciudad ciudad, String codigo)throws AerolineaException, CiudadNombreIncorrectoExcepcion{
+        if(nombre.length() == 0)
+        	throw new AerolineaNombreIncorrectoException(); 
+        if(ciudad.getNombre().length() == 0)
+        	throw new CiudadNombreIncorrectoExcepcion();
 		this.idAeropuerto = idAeropuerto;
 		this.nombre = nombre;
 		this.ciudad = ciudad;

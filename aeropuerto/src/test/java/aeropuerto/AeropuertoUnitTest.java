@@ -2,24 +2,34 @@ package aeropuerto;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
-import excepciones.CiudadNombreIncorrectoExcepcion;
+import excepciones.AerolineaException;
+import excepciones.AeropuertoNombreIncorrectoExcepcion;
+import excepciones.AeropuertoExcepcion;
+import excepciones.CiudadException;
+import excepciones.CiudadNombreIncorrectoException;
+ 
 
 public class AeropuertoUnitTest {
 	@Test
-	void aeropuertoTest_devuelveFormato() {
-
-		Ciudad laCiudad=null;
+	public void aeropuertoTest_devuelveFormato(){
+		Ciudad buenosAires = null;
 		try {
-			laCiudad = new Ciudad(1, "La Rioja", "5300");
-		} catch (CiudadNombreIncorrectoExcepcion e) {
+			buenosAires = new Ciudad(1,"Buenos Aires", "2323");
+		} catch (CiudadNombreIncorrectoException e) {
+			e.printStackTrace();
+		}catch (Exception e) {
+			e.printStackTrace();
+			// TODO: handle exception
+		}
+		Aeropuerto elAeropuerto = null;
+		try {						
+			elAeropuerto = new Aeropuerto(002,"Capitán Vicente Almandos Almonacid", buenosAires,  "0001");
+		}catch (AeropuertoExcepcion e) {
 			e.printStackTrace();
 		}
-		Aeropuerto ElAeropuerto = new Aeropuerto(1, "Aeropuerto Capitán Vicente Almandos Almonacid", laCiudad,
-				"IRJ");
-		String returned = ElAeropuerto.detalles();
-		assertEquals("Aeropuerto Capitán Vicente Almandos Almonacid - La Rioja - IRJ", returned);
-
-	}
-
-}
+		assertEquals("Aeropuerto Nombre Incorrecto",e.getMessage());
+	
+   }
+} 		
+		
 
