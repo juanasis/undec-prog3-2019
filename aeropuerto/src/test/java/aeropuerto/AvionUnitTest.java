@@ -14,9 +14,14 @@ public class AvionUnitTest {
 	public void ModeloAvion_FaltaModelo_InstanciaIncorrecta() {
 		Avion elAvion = null;
 		List<Asiento> listaDeAsientos = new ArrayList<Asiento>();
-		listaDeAsientos.add(new Asiento(1, "01 A"));
-		listaDeAsientos.add(new Asiento(2, "02 A"));
-		listaDeAsientos.add(new Asiento(3, "01 B"));
+		Asiento A1 = null;
+		try {
+			A1 = new Asiento(01, "01-A1"); 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		listaDeAsientos.add(A1);
+		
 		try {
 			elAvion = new Avion(001, "", "ABC 123", listaDeAsientos);
 		} catch (AvionException e) {
@@ -27,9 +32,14 @@ public class AvionUnitTest {
 	public void MatriculaAvion_FaltaMatricula_InstanciaIncorrecta() {
 		Avion elAvion = null;
 		List<Asiento> listaDeAsientos = new ArrayList<Asiento>();
-		listaDeAsientos.add(new Asiento(1, "01 A"));
-		listaDeAsientos.add(new Asiento(2, "02 A"));
-		listaDeAsientos.add(new Asiento(3, "01 B"));
+		
+		Asiento A1 = null;
+		try {
+			A1 = new Asiento(01, "01-A1"); 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		listaDeAsientos.add(A1);
 		try {
 			elAvion = new Avion(001, "Boeing_737", "", listaDeAsientos);
 		} catch (AvionException e) {
