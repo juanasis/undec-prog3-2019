@@ -29,6 +29,14 @@ public class Service {
 			return new Service( i,  elVehiculo,  elCliente,  of,  detalle,
 					 f);
 	}
+	public String mostrarResumen() {
+		// "Service Nro: 1\nCliente: Perez, Juan - 15152020\nVehiculo: VW Golf modelo 2009 
+		//- Patente ABC123\nTrabajo Realizado: Cambio de Aceite y Filtro"
+		return "Service Nro: "+this.idService+"\nCliente: "+this.cliente.getApellido()+", "+this.cliente.getNombres()+" - "+this.cliente.getTelefono()+
+				"\nVehiculo: "+this.vehiculo.getMarcaModelo()+" modelo "+this.vehiculo.getAnio()+" - Patente "+
+				this.vehiculo.getPatente()+"\nTrabajo Realizado: "+this.detalleService;
+				
+	}
 	
 	
 	

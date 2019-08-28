@@ -26,6 +26,55 @@ public class Vehiculo {
 			return new  Vehiculo( idVehiculo,  marcaModelo,  patente,  anio) ;
 			
 	}
+	
+
+
+
+	public int getIdVehiculo() {
+		return idVehiculo;
+	}
+
+
+
+	public void setIdVehiculo(int idVehiculo) {
+		this.idVehiculo = idVehiculo;
+	}
+
+
+
+	public String getMarcaModelo() {
+		return marcaModelo;
+	}
+
+
+
+	public void setMarcaModelo(String marcaModelo) {
+		this.marcaModelo = marcaModelo;
+	}
+
+
+
+	public String getPatente() {
+		return patente;
+	}
+
+
+
+	public void setPatente(String patente) {
+		this.patente = patente;
+	}
+
+
+
+	public int getAnio() {
+		return anio;
+	}
+
+
+
+	public void setAnio(int anio) {
+		this.anio = anio;
+	}
 
 
 
@@ -33,5 +82,9 @@ public class Vehiculo {
 		// TODO Auto-generated method stub
 		return ""+this.marcaModelo+" modelo "+this.anio+" - Patente "+this.patente;
 	}
+
+
+
+	
 
 }
